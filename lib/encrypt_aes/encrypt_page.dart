@@ -13,7 +13,9 @@ class EncryptPage extends StatefulWidget {
 class _EncryptPageState extends State<EncryptPage> {
 
 
-  // source ; https://www.youtube.com/watch?v=lM5JsDlmve4&t=57s
+  // source=AES ; https://www.youtube.com/watch?v=lM5JsDlmve4&t=57s
+  //source = Fernet ;  https://www.youtube.com/watch?v=2Z59zl3XdS8&t=2s
+  //source = Salsa20 ;  https://www.youtube.com/watch?v=NnY-wyrfQ80&t=1s
 
   TextEditingController controller = TextEditingController();
   var encryptedText, plainText;
@@ -67,7 +69,9 @@ class _EncryptPageState extends State<EncryptPage> {
                 ElevatedButton(onPressed: (){
                   plainText = controller.text;
                   setState(() {
-                    encryptedText = MyEncryptionDecryption.encryptAES(plainText);
+                    // encryptedText = MyEncryptionDecryption.encryptAES(plainText);
+                    // encryptedText = MyEncryptionDecryption.encryptFernet(plainText);
+                    encryptedText = MyEncryptionDecryption.encryptSalsa20(plainText);
                   });
                 }, child: const Text("Encrypt")),
 
@@ -75,7 +79,9 @@ class _EncryptPageState extends State<EncryptPage> {
 
                 ElevatedButton(onPressed: (){
                   setState(() {
-                    encryptedText = MyEncryptionDecryption.decryptAES(encryptedText);
+                    // encryptedText = MyEncryptionDecryption.decryptAES(encryptedText);
+                    // encryptedText = MyEncryptionDecryption.decryptFernet(encryptedText);
+                    encryptedText = MyEncryptionDecryption.decryptSalsa20(encryptedText);
                   });
                 }, child: Text("Decrypt")),
               ],
