@@ -1,4 +1,4 @@
-import 'package:encryption_decryption_flutter/user_secure_storage.dart';
+import 'package:encryption_decryption_flutter/encrypt_secure_storage/user_secure_storage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
